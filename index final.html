@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alisha Ahmed | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2b3a4a;
+            --accent: #d4a373;
+            --accent-light: #fefae0;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        header {
+            padding: 8rem 5% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p.subtitle {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p.desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d2733;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-img-container {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 4px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        /* Section Container */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .section-header div {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--accent-light);
+            color: var(--primary);
+            padding: 0.35rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Portfolio Projects */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #f3f4f6;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .project-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 1.5rem 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--accent);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            font-size: 1.15rem;
+        }
+
+        .timeline-item .company {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ALISHA AHMED</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="about">
+        <div class="hero-text">
+            <p class="subtitle">Analytics & Content Strategist</p>
+            <h1>Business Analytics & Programming Student | Social Media & Content Specialist | Content Strategy | Excel & Data Analytics.</h1>
+            <p class="desc">BS Business Analytics & Programming student specializing in social media growth, Excel dashboards, brand identity design, and Python analytical solutions.</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary"><i class="fas fa-folder-open"></i> View Work</a>
+                <a href="https://www.linkedin.com/in/alisha-ahmed-a63350261/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:alishaimtiazz16@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-img-container">
+            <img src="images/profile.png" alt="Alisha Ahmed" class="hero-img">
+        </div>
+    </header>
+
+    <section class="section" id="skills">
+        <div class="section-header">
+            <h2>Core Competencies</h2>
+            <div></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Data Analytics</h3>
+                <div class="skill-tags">
+                    <span class="tag">Microsoft Excel</span>
+                    <span class="tag">Dashboards</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Data Entry</span>
+                    <span class="tag">Google Sheets</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Content Strategy</h3>
+                <div class="skill-tags">
+                    <span class="tag">Social Media Management</span>
+                    <span class="tag">Content Writing</span>
+                    <span class="tag">Digital Marketing</span>
+                    <span class="tag">Audience Growth</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-palette"></i>
+                <h3>Design & Media</h3>
+                <div class="skill-tags">
+                    <span class="tag">Canva</span>
+                    <span class="tag">CapCut</span>
+                    <span class="tag">Video Editing</span>
+                    <span class="tag">Logo & Brand Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="portfolio">
+        <div class="section-header">
+            <h2>Featured Projects & Work</h2>
+            <div></div>
+        </div>
+        <div class="portfolio-grid">
+            <!-- Project 1: Library Management System Code Python -->
+            <div class="project-card">
+                <img src="images/python-project.png" alt="Library Management System Interface" class="project-img">
+                <div class="project-content">
+                    <div class="project-category">Software & Programming</div>
+                    <h3>Library Management System Code Python</h3>
+                    <p>Object-Oriented Programming repository showcasing clean software architecture, class design, and practical logic implementations.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/lish1608/OOP-Project/tree/main" target="_blank"><i class="fab fa-github"></i> View GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Business Analytics Dashboard -->
+            <div class="project-card">
+                <img src="images/dashboard.png" alt="Business Analytics Excel Dashboard" class="project-img">
+                <div class="project-content">
+                    <div class="project-category">Data & Analytics</div>
+                    <h3>Business Analytics Spreadsheet Dashboard</h3>
+                    <p>Interactive cloud spreadsheet designed for automated data visual reporting, financial/operational tracking, and executive insights.</p>
+                    <div class="project-links">
+                        <a href="Https://1drv.ms/x/c/fb094a18f8464378/IQDdGuHtMfbSTZbnhFDNH5zSAdW87OsVEKo3szAT8Xy6KhU?e=szigrB" target="_blank"><i class="fas fa-file-excel"></i> View Live Spreadsheet</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Oxygen Lab Science Graphics -->
+            <div class="project-card">
+                <img src="images/oxygen-lab.png" alt="Oxygen Lab Graphic" class="project-img">
+                <div class="project-content">
+                    <div class="project-category">Social Media Strategy</div>
+                    <h3>Oxygen Lab US - Educational Campaigns</h3>
+                    <p>Created precision infographics ("Storage Best Practices" & "Myth vs Fact") translating complex peptide science into engaging social content.</p>
+                </div>
+            </div>
+
+            <!-- Project 4: Book Writers Poster -->
+            <div class="project-card">
+                <img src="images/book-writers.jpg" alt="Book Writers Graphic" class="project-img">
+                <div class="project-content">
+                    <div class="project-category">Marketing & Graphic Design</div>
+                    <h3>Book Writers Promotional Graphic</h3>
+                    <p>Designed clean, high-converting service overview ad for bookwriters.ca highlighting ghostwriting, coaching, and publishing services.</p>
+                </div>
+            </div>
+
+            <!-- Project 5: Logo & Branding Work -->
+            <div class="project-card">
+                <img src="images/brand-logos.jpg" alt="Adornments Atelier Logo" class="project-img">
+                <div class="project-content">
+                    <div class="project-category">Brand Identity Design</div>
+                    <h3>Brand Logos & Identity Design</h3>
+                    <p>Designed elegant monogram and minimalist logos for boutique client brands including Adornments Atelier, Thesis Publications, and Book Publisher.</p>
+                </div>
+            </div>
+
+            <!-- Project 6: Short Video Content -->
+            <div class="project-card">
+                <img src="images/short-form-video.png" alt="Short-Form Video Premiere Pro Workspace" class="project-img">
+                <div class="project-content">
+                    <div class="project-category">Video Editing & Reels</div>
+                    <h3>Short-Form Video & Visual Content</h3>
+                    <p>Produced engaging Reels and promos using CapCut & video editing suites, focusing on wellness grounding techniques (5-4-3-2-1 method) and luxury jewelry showcases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="experience">
+        <div class="section-header">
+            <h2>Experience & Education</h2>
+            <div></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Social Media Manager</h3>
+                <div class="company">Oxygen Labs US</div>
+                <p>Managed social media content scheduling, digital marketing asset planning, and visual infographic development.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Social Media Manager</h3>
+                <div class="company">Verity Techniques</div>
+                <p>Developed comprehensive content strategies, custom graphic designs, and managed client relations.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Freelance Content Creator & Designer</h3>
+                <div class="company">Self-Employed</div>
+                <p>Delivered custom logo designs, content writing, CapCut/YouTube video editing, and tailored Excel dashboard solutions.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>BS Business Analytics & Programming (Ongoing)</h3>
+                <div class="company">DHA Suffa University</div>
+                <p>Specializing in computational data analysis, business reporting systems, and programming logic.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 style="margin-bottom: 1rem;">Let's Connect</h2>
+        <p>Karachi, Pakistan | 0335 6301882 | alishaimtiazz16@gmail.com</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/alisha-ahmed-a63350261/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/lish1608/OOP-Project/tree/main" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:alishaimtiazz16@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:03356301882"><i class="fas fa-phone"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
